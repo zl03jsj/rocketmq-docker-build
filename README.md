@@ -21,7 +21,7 @@ Apache RocketMQ 是一个具有低延迟、高性能和高可靠性、万亿级�
 
 ## 注意
 
-本镜像基于``CentOS 7``采用Apache RocketMQ官方已发布版本进行构建，内置``net-tools``、``vim``、``htop``软件方便开发者使用。
+本镜像基于``unbuntu 24.04``采用Apache RocketMQ官方已发布版本进行构建，内置``net-tools``、``vim``、``htop``软件方便开发者使用。
 
 ### 目录结构
 
@@ -73,7 +73,7 @@ docker run -itd \
  -v rocketmq_data:/home/app/data \
  -v /etc/localtime:/etc/localtime \
  -v /var/run/docker.sock:/var/run/docker.sock \
- xuchengen/rocketmq:latest
+ rocketmq_all_in_one:latest
  
  # Windows
  docker run -itd `
@@ -88,7 +88,7 @@ docker run -itd \
  -v rocketmq_data:/home/app/data `
  -v /etc/localtime:/etc/localtime `
  -v /var/run/docker.sock:/var/run/docker.sock `
- xuchengen/rocketmq:latest
+ rocketmq_all_in_one:latest
 ```
 
 ### 控制台

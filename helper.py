@@ -80,7 +80,7 @@ class Helper(object):
         """
         for pid in psutil.pids():
             p = psutil.Process(pid)
-            if p.name() == "docker.exe" or p.name() == "dockerd":
+            if p.name() == "docker.exe" or p.name() == "dockerd" or p.name() == "Docker":
                 return True
 
         return False

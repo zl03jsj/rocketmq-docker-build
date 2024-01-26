@@ -4,3 +4,6 @@
 /target/dist/
 /target/make/
 /target/tools/
+.idea/
+__pycache__/
+commons/__pycache__/

@@ -1,4 +1,4 @@
-FROM xce/centos:java
+FROM ubuntu:24.04
 # 版本
 ARG version
 
@@ -33,12 +33,20 @@ COPY ["./${version}","/tmp/rocketmq/"]
 
 # 添加组
 RUN groupadd -g ${gid} ${group} \
-    # 添加用户
     && useradd -u ${uid} -g ${gid} -m -s /bin/bash ${user} \
-    # 安装软件包
-    #&& yum install -y epel-release \
-    #&& yum install -y java-1.8.0-openjdk-devel.x86_64 htop net-tools vim \
-    #&& yum clean all -y \
+    && echo updating apt...\
+    && apt-get update \
+    && echo install vim... \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y vim \
+    && echo install curl... \
+    && apt-get install -y curl \
+    && echo install common software... \
+    && apt-get install -y software-properties-common \
+    && echo install openjdk... \
+    && apt-get install -y openjdk-8-jdk \
+    && echo install net-tools... \
+    && apt-get install -y net-tools \
+    && apt-get clean all -y \
     # 显示vim行号
     && echo ":set number" > ${USER_HOME}/.vimrc \
     # 将/root/rocketmq移动到/home/app/
